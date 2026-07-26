@@ -1,0 +1,29 @@
+# Legacy React APIs
+
+These APIs are exported from the `react` package, but they are not recommended for use in newly written code. See the linked individual API pages for the suggested alternatives.
+
+---
+
+## Legacy APIs
+
+* [`Children`](Children.md) lets you manipulate and transform the JSX received as the `children` prop. [See alternatives.](Children.md#Alternatives)
+* [`cloneElement`](cloneElement.md) lets you create a React element using another element as a starting point. [See alternatives.](cloneElement.md#Alternatives)
+* [`Component`](Component.md) lets you define a React component as a JavaScript class. [See alternatives.](Component.md#Alternatives)
+* [`createElement`](createElement.md) lets you create a React element. Typically, you'll use JSX instead.
+* [`createRef`](createRef.md) creates a ref object which can contain arbitrary value. [See alternatives.](createRef.md#Alternatives)
+* [`forwardRef`](forwardRef.md) lets your component expose a DOM node to parent component with a [ref.](../../learn/manipulating-the-dom-with-refs.md)
+* [`isValidElement`](isValidElement.md) checks whether a value is a React element. Typically used with [`cloneElement`.](cloneElement.md)
+* [`PureComponent`](PureComponent.md) is similar to [`Component`,](Component.md) but it skip re-renders with same props. [See alternatives.](PureComponent.md#Alternatives)
+
+---
+
+## Removed APIs
+
+These APIs were removed in React 19:
+
+* [`createFactory`](https://18.react.dev/reference/react/createFactory): use JSX instead.
+* Class Components: [`static contextTypes`](https://18.react.dev//reference/react/Component#static-contexttypes): use [`static contextType`](#static-contexttype) instead.
+* Class Components: [`static childContextTypes`](https://18.react.dev//reference/react/Component#static-childcontexttypes): use [`static contextType`](#static-contexttype) instead.
+* Class Components: [`static getChildContext`](https://18.react.dev//reference/react/Component#getchildcontext): use [`Context`](createContext.md#`SomeContext` Provider) instead.
+* Class Components: [`static propTypes`](https://18.react.dev//reference/react/Component#static-proptypes): use a type system like [TypeScript](https://www.typescriptlang.org/) instead.
+* Class Components: [`this.refs`](https://18.react.dev//reference/react/Component#refs): use [`createRef`](createRef.md) instead.
