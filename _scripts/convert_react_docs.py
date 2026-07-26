@@ -392,8 +392,10 @@ def github_slug(text):
 
 
 def extract_headings(text):
-    """slug -> original heading text for every heading in a markdown file"""
+    """slug -> original heading text for every heading in a markdown file.
+    Duplicate slugs get GitHub-style -1/-2 suffixes."""
     headings = {}
+    counts = {}
     fence = None
     for line in text.split("\n"):
         m = FENCE_RE.match(line)
@@ -409,7 +411,10 @@ def extract_headings(text):
         if h:
             title = h.group(1).strip()
             slug = github_slug(title)
-            headings.setdefault(slug, title)
+            n = counts.get(slug, 0)
+            counts[slug] = n + 1
+            key = slug if n == 0 else "%s-%d" % (slug, n)
+            headings.setdefault(key, title)
     return headings
 
 

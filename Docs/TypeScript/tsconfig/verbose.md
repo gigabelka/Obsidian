@@ -1,0 +1,3 @@
+# `verbose`
+
+Enable verbose logging
